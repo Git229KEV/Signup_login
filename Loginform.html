@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style>
+            .error {
+                color: red;
+                font-size: 0.875em;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+            li {
+                float: left;
+            }
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            a:hover {
+                background-color: aliceblue;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li><a href="Signupform.html">Signup</a></li>
+            <li><a href="Loginform.html">Login</a></li> 
+        </ul>
+        <div class="container">
+            <h2 class="mt-5">Login Form</h2>
+            <form id="LoginForm" novalidate>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Enter username">
+                    <div class="error" id="usernameError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter password">
+                    <div class="error" id="passwordError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                    <div class="error" id="emailError"></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $("#LoginForm").submit(function(event) {
+                    event.preventDefault();
+                    let Valid = true;
+                    $('.error').text('');
+                    // Add your validation logic here
+                    const username = $("#username").val();
+                    const password = $("#password").val();          
+                    const email = $("#email").val().trim();
+
+                    if(username ==='Kevin' && password ==='123456' && email ==='kevinjey65@gmail.com'){
+                        alert("Login Successful!");
+                    } else {
+                        if(username !== 'Kevin'){
+                            $('#usernameError').text('Username not found');
+                        }
+                        if(email !== 'kevinjey65@gmail.com'){
+                            $('#emailError').text('Please check your email address');
+                        }
+                        if(password !== '123456'){
+                            $('#passwordError').text('Incorrect password');
+                        }
+                    }
+                });
+            });
+        </script>
+
+        
+    </body>
+
+    
+</html>
